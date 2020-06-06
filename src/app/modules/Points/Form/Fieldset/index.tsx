@@ -5,6 +5,11 @@ interface Props {
   subtitle?: string
 }
 
+const defaultProps = {
+  title: 'Untitle',
+  subtitle: undefined,
+};
+
 const Fieldset: React.FC<Props> = (props) => {
   const { title, subtitle, children } = props;
 
@@ -20,5 +25,7 @@ const Fieldset: React.FC<Props> = (props) => {
     </fieldset>
   );
 };
+
+Fieldset.defaultProps = defaultProps;
 
 export default Fieldset;
