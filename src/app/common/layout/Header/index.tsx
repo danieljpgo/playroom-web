@@ -1,10 +1,10 @@
 import React from 'react';
+import logo from '../../resources/assets/logo.svg';
 
-interface Props {}
 
-const Header: React.FC<Props> = () => (
+const Header: React.FC = () => (
   <header>
-    <h1>Ecoleta</h1>
+    <img src={logo} alt="Ecoleta" />
   </header>
 );
 
