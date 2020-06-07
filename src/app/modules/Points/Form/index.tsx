@@ -7,6 +7,7 @@ import { LeafletMouseEvent } from 'leaflet';
 import api from '../../../common/services/api';
 import Fieldset from './Fieldset';
 import Map from './Map';
+import Modal from '../../../common/components/Modal';
 
 interface Item {
   id: number,
@@ -32,6 +33,7 @@ const Form: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
   const [currentPosition, setCurrentPosition] = useState<[number, number]>([0, 0]);
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const history = useHistory();
 
@@ -97,7 +99,11 @@ const Form: React.FC = () => {
       items,
     };
     await api.post('points', data);
-    history.push('/');
+    setShowModal(true);
+    setTimeout(() => {
+      setShowModal(false);
+      history.push('/');
+    }, 5000);
   }
 
   function handleSelectItem(id: number) {
@@ -233,6 +239,8 @@ const Form: React.FC = () => {
       <button type="submit">
         Cadastrar ponto de coleta
       </button>
+
+      <Modal show={showModal} />
     </form>
   );
 };
