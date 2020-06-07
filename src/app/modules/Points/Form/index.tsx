@@ -1,4 +1,7 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import React, {
+  useEffect, useState, ChangeEvent, FormEvent,
+} from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { LeafletMouseEvent } from 'leaflet';
 import api from '../../../common/services/api';
@@ -20,13 +23,17 @@ interface IBGECity {
 }
 
 const Form: React.FC = () => {
+  const [form, setForm] = useState({ name: '', email: '', whatsapp: '' });
   const [items, setItems] = useState<Item[]>([]);
   const [states, setStates] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
   const [selectState, setSelectState] = useState<string>('default');
   const [selectCity, setSelectCity] = useState<string>('default');
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
   const [currentPosition, setCurrentPosition] = useState<[number, number]>([0, 0]);
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
+
+  const history = useHistory();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -51,6 +58,11 @@ const Form: React.FC = () => {
     }
   }, [selectState]);
 
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target;
+    setForm({ ...form, [name]: value });
+  }
+
   function handleSelectState(event: ChangeEvent<HTMLSelectElement>) {
     setSelectState(event.target.value);
   }
@@ -66,8 +78,38 @@ const Form: React.FC = () => {
     ]);
   }
 
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    const { name, email, whatsapp } = form;
+    const state = selectState;
+    const city = selectCity;
+    const [latitude, longitude] = selectedPosition;
+    const items = selectedItems;
+
+    const data = {
+      name,
+      email,
+      whatsapp,
+      state,
+      city,
+      latitude,
+      longitude,
+      items,
+    };
+    await api.post('points', data);
+    history.push('/');
+  }
+
+  function handleSelectItem(id: number) {
+    if (selectedItems.includes(id)) {
+      setSelectedItems(selectedItems.filter((item) => item !== id));
+    } else {
+      setSelectedItems([...selectedItems, id]);
+    }
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h1>
         Cadastro do
         <br />
@@ -78,9 +120,10 @@ const Form: React.FC = () => {
         <div className="field">
           <label htmlFor="name">Nome da entidade</label>
           <input
-            type="text"
-            name="name"
             id="name"
+            name="name"
+            type="text"
+            onChange={handleInputChange}
           />
         </div>
 
@@ -88,17 +131,19 @@ const Form: React.FC = () => {
           <div className="field">
             <label htmlFor="email">E-mail</label>
             <input
-              type="email"
-              name="email"
               id="email"
+              name="email"
+              type="email"
+              onChange={handleInputChange}
             />
           </div>
           <div className="field">
             <label htmlFor="whatsapp">Whatsapp</label>
             <input
-              type="text"
-              name="whatsapp"
               id="whatsapp"
+              name="whatsapp"
+              type="text"
+              onChange={handleInputChange}
             />
           </div>
         </div>
@@ -170,8 +215,9 @@ const Form: React.FC = () => {
               : (
                 items.map((item) => (
                   <li
-                    className="selected"
-                    key={item.title}
+                    key={item.id}
+                    className={selectedItems.includes(item.id) ? 'selected' : ''}
+                    onClick={() => handleSelectItem(item.id)}
                   >
                     <img
                       src={item.image_url}
