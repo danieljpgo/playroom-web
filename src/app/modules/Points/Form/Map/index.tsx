@@ -1,30 +1,42 @@
 import React from 'react';
 import { Map, Marker, TileLayer } from 'react-leaflet';
+import { LeafletMouseEvent } from 'leaflet';
 
 interface Props {
-  position: [number, number]
-  zoom?: number
+  currentPosition: [number, number],
+  selectedPosition: [number, number],
+  zoom?: number,
+  mapSelection: (event: LeafletMouseEvent) => void,
 }
 
 const PointsMap: React.FC<Props> = (props) => {
-  const { position, zoom } = props;
+  const {
+    currentPosition,
+    selectedPosition,
+    zoom,
+    mapSelection,
+  } = props;
+
+  const defaultPosition = selectedPosition.length > 0 && selectedPosition[0] === 0 && selectedPosition[1] === 0;
 
   return (
     <Map
-      center={position}
+      center={defaultPosition ? currentPosition : selectedPosition}
       zoom={zoom}
+      onClick={mapSelection}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
       />
-      <Marker position={position} />
+      <Marker position={selectedPosition} />
     </Map>
   );
 };
 
 PointsMap.defaultProps = {
-  position: [-19.9232945, -43.9462827],
+  currentPosition: [0, 0],
+  selectedPosition: [0, 0],
   zoom: 16,
 };
 

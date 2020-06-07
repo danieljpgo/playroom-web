@@ -1,5 +1,6 @@
 import React, { useEffect, useState, ChangeEvent } from 'react';
 import axios from 'axios';
+import { LeafletMouseEvent } from 'leaflet';
 import api from '../../../common/services/api';
 import Fieldset from './Fieldset';
 import Map from './Map';
@@ -24,6 +25,15 @@ const Form: React.FC = () => {
   const [cities, setCities] = useState<string[]>([]);
   const [selectState, setSelectState] = useState<string>('default');
   const [selectCity, setSelectCity] = useState<string>('default');
+  const [currentPosition, setCurrentPosition] = useState<[number, number]>([0, 0]);
+  const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      setCurrentPosition([latitude, longitude]);
+    });
+  }, []);
 
   useEffect(() => {
     api.get('items').then((response) => setItems(response.data));
@@ -47,6 +57,13 @@ const Form: React.FC = () => {
 
   function handleSelectCity(event: ChangeEvent<HTMLSelectElement>) {
     setSelectCity(event.target.value);
+  }
+
+  function handleMapSelection(event: LeafletMouseEvent) {
+    setSelectedPosition([
+      event.latlng.lat,
+      event.latlng.lng,
+    ]);
   }
 
   return (
@@ -91,8 +108,11 @@ const Form: React.FC = () => {
         title="Endereço"
         subtitle="Selecione o endereço no mapa"
       >
-        {/* @TODO Remover o codigo marretado abaixo */}
-        <Map position={[-19.9232945, -43.9462827]} />
+        <Map
+          selectedPosition={selectedPosition}
+          currentPosition={currentPosition}
+          mapSelection={handleMapSelection}
+        />
         <div className="field-group">
           <div className="field">
             <label htmlFor="uf">Estado (UF)</label>
