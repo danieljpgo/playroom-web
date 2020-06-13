@@ -7,7 +7,7 @@ import './styles.css';
 const Home: React.FC = () => (
   <div id="page-home">
     <div className="content">
-      <Header />
+      {/* <Header /> */}
 
       <main>
         <h1> Seu marketplace de coleta de resíduos. </h1>

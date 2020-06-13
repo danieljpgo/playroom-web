@@ -27,4 +27,5 @@ const Header: React.FC<Props> = (props) => {
     </header>
   );
 };
+
 export default Header;

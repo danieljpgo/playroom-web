@@ -24,10 +24,10 @@
         "@typescript-eslint"
     ],
     "rules": {
-        // "react/jsx-fragments": [
-        // 1,
-        // "element"
-        // ],
+        "react/jsx-fragments": [
+            1,
+            "element"
+        ],
         // "react/prop-types": "off",
         "react/jsx-filename-extension": [
             "error",

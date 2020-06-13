@@ -5,7 +5,7 @@ import './styles.css';
 
 const Points: React.FC = () => (
   <div id="page-create-point">
-    <Header back={{ to: '/', text: 'Voltar para home' }} />
+    {/* <Header back={{ to: '/', text: 'Voltar para home' }} /> */}
     <Form />
   </div>
 );
