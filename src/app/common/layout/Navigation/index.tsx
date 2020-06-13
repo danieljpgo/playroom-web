@@ -1,16 +1,21 @@
-import React, { Fragment, Children } from 'react';
+import React from 'react';
 import Header from '../Header';
+import './styles.css';
 
-const Navigation: React.FC = (props) => {
+interface Props {
+  children: JSX.Element,
+}
+
+const Navigation: React.FC<Props> = (props) => {
   const { children } = props;
 
   return (
-    <Fragment>
+    <div className="wrapper">
       <Header />
       <main>
         {children}
       </main>
-    </Fragment>
+    </div>
   );
 };
 

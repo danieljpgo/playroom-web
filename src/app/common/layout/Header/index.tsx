@@ -1,31 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
+import { NavLink } from 'react-router-dom';
+import { FiArrowLeft as Icon } from 'react-icons/fi';
 import logo from '../../resources/assets/logo.svg';
+import './styles.css';
 
-interface Props {
-  back?: {
-    to: string,
-    text: string
-  },
-}
-
-const Header: React.FC<Props> = (props) => {
-  const { back } = props;
-
-  return (
-    <header>
-      <img src={logo} alt="Ecoleta" />
-      {
-        back && (
-          <Link to={back.to}>
-            <FiArrowLeft />
-            {back.text}
-          </Link>
-        )
-      }
-    </header>
-  );
-};
+const Header: React.FC = () => (
+  <header>
+    <img src={logo} alt="Ecoleta" />
+    <NavLink
+      to="/"
+      isActive={(match, location) => location.pathname === '/cadastro'}
+      activeClassName="show"
+    >
+      <Icon />
+      <span>Voltar para home</span>
+    </NavLink>
+  </header>
+);
 
 export default Header;
