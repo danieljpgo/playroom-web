@@ -1,39 +1,19 @@
 #page-create-point {
-  width: 100%;
-  max-width: 1100px;
-
-  margin: 0 auto;
-}
-
-/* #page-create-point header {
-  margin-top: 48px;
-
+  /* width: 100%; */
+  /* max-width: 1100px; */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  /* margin: 0 auto; */
 }
-
-#page-create-point header a {
-  color: var(--title-color);
-  font-weight: bold;
-  text-decoration: none;w
-
-  display: flex;
-  align-items: center;
-}
-
-#page-create-point header a svg {
-  margin-right: 16px;
-  color: var(--primary-color);
-} */
 
 #page-create-point form {
-  margin: 80px auto;
+  margin: 40px 24px;
   padding: 64px;
   max-width: 730px;
   background: #FFF;
   border-radius: 8px;
-
+  max-width: 720px;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -53,6 +33,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 40px;
 }
 
@@ -67,16 +48,14 @@
 }
 
 #page-create-point form .field-group {
-  flex: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-column-gap: 24px;
 }
 
 #page-create-point form .field {
-  flex: 1;
-
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 24px;
+  display: grid;
+  margin-bottom: 12px;
 }
 
 #page-create-point form .field input[type=text],
@@ -89,6 +68,7 @@
   padding: 16px 24px;
   font-size: 16px;
   color: #6C6C80;
+  width: 100%;
 }
 
 #page-create-point form .field select {
@@ -117,13 +97,13 @@
   cursor: not-allowed;
 }
 
-#page-create-point form .field-group .field + .field {
+/* #page-create-point form .field-group .field + .field {
   margin-left: 24px;
 }
 
 #page-create-point form .field-group input + input {
   margin-left: 24px;
-}
+} */
 
 #page-create-point form .field-check {
   flex-direction: row;
@@ -146,8 +126,7 @@
 }
 
 #page-create-point form button {
-  width: 260px;
-  height: 56px;
+  padding: 18px;
   background: var(--primary-color);
   border-radius: 8px;
   color: #FFF;
@@ -166,7 +145,7 @@
 
 .items-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 16px;
   list-style: none;
 }
@@ -200,4 +179,14 @@
 .items-grid li.selected {
   background: #E1FAEC;
   border: 2px solid #34CB79;
+}
+
+@media(max-width: 520px) {
+  #page-create-point form {
+   padding: 36px;
+  }
+
+  #page-create-point form fieldset {
+    margin-top: 36px;
+  }
 }
