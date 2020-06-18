@@ -28,7 +28,6 @@
             1,
             "element"
         ],
-        // "react/prop-types": "off",
         "react/jsx-filename-extension": [
             "error",
             {
@@ -38,17 +37,28 @@
                 ]
             }
         ],
-        // "react/prop-types": 0,
         "import/extensions": [
             "error",
             "ignorePackages",
             {
-                "js": "never",
-                "jsx": "never",
                 "ts": "never",
                 "tsx": "never"
             }
         ],
-        "import/prefer-default-export": "off"
+        "react/prop-types": "off"
+        // "import/prefer-default-export": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx",
+                    ".json"
+                ]
+            }
+        }
     }
 }

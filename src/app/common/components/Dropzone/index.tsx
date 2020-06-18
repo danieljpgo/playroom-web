@@ -10,7 +10,7 @@ interface Props {
 const Dropzone: React.FC<Props> = (props) => {
   const { onFileUploaded } = props;
 
-  const [selectedFileUrl, setSelectedFileUrl] = useState('');
+  const [selectedFileUrl, setSelectedFileUrl] = useState<string>('');
 
   const onDrop = useCallback((selectedFiles) => {
     const file = selectedFiles[0];
@@ -30,7 +30,9 @@ const Dropzone: React.FC<Props> = (props) => {
           : (
             <p>
               <Icon />
-              { isDragActive ? 'Solte o arquivo' : 'Imagem do estabelecimento' }
+              <span>
+                { isDragActive ? 'Solte o arquivo aqui :)' : 'Imagem do local de coleta' }
+              </span>
             </p>
           )
       }
