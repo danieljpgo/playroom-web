@@ -8,6 +8,7 @@ import api from '../../../common/services/api';
 import Fieldset from './Fieldset';
 import Map from './Map';
 import Modal from '../../../common/components/Modal';
+import Dropzone from '../../../common/components/Dropzone';
 
 interface Item {
   id: number,
@@ -34,6 +35,7 @@ const Form: React.FC = () => {
   const [currentPosition, setCurrentPosition] = useState<[number, number]>([0, 0]);
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [selectedFile, setSelectedFile] = useState<File>();
 
   const history = useHistory();
 
@@ -80,6 +82,18 @@ const Form: React.FC = () => {
     ]);
   }
 
+  function handleSelectItem(id: number) {
+    if (selectedItems.includes(id)) {
+      setSelectedItems(selectedItems.filter((item) => item !== id));
+    } else {
+      setSelectedItems([...selectedItems, id]);
+    }
+  }
+
+  function handleSelectFile(file: File) {
+    setSelectedFile(file);
+  }
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     const { name, email, whatsapp } = form;
@@ -88,30 +102,25 @@ const Form: React.FC = () => {
     const [latitude, longitude] = selectedPosition;
     const items = selectedItems;
 
-    const data = {
-      name,
-      email,
-      whatsapp,
-      state,
-      city,
-      latitude,
-      longitude,
-      items,
-    };
+    const data = new FormData();
+
+    data.append('name', name);
+    data.append('email', email);
+    data.append('whatsapp', whatsapp);
+    data.append('state', state);
+    data.append('city', city);
+    data.append('latitude', String(latitude));
+    data.append('longitude', String(longitude));
+    data.append('items', items.join(','));
+
+    if (selectedFile) data.append('image', selectedFile);
+
     await api.post('points', data);
     setShowModal(true);
     setTimeout(() => {
       setShowModal(false);
       history.push('/');
     }, 5000);
-  }
-
-  function handleSelectItem(id: number) {
-    if (selectedItems.includes(id)) {
-      setSelectedItems(selectedItems.filter((item) => item !== id));
-    } else {
-      setSelectedItems([...selectedItems, id]);
-    }
   }
 
   return (
@@ -121,6 +130,8 @@ const Form: React.FC = () => {
         <br />
         Ponto de Coleta
       </h1>
+
+      <Dropzone onFileUploaded={handleSelectFile} />
 
       <Fieldset title="Dados">
         <div className="field">
