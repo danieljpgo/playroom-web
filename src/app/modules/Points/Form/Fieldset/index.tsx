@@ -2,7 +2,8 @@ import React from 'react';
 
 interface Props {
   title: string,
-  subtitle?: string
+  subtitle?: string,
+  children: JSX.Element | JSX.Element[]
 }
 
 const defaultProps = {

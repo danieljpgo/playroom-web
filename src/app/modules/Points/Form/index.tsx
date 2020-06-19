@@ -1,5 +1,5 @@
 import React, {
-  useEffect, useState, ChangeEvent, FormEvent,
+  useEffect, useState, ChangeEvent, FormEvent, useCallback,
 } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
@@ -83,17 +83,17 @@ const Form: React.FC = () => {
     ]);
   }
 
-  function handleSelectItem(id: number) {
+  const handleSelectItem = useCallback((id: number) => {
     if (selectedItems.includes(id)) {
       setSelectedItems(selectedItems.filter((item) => item !== id));
     } else {
       setSelectedItems([...selectedItems, id]);
     }
-  }
+  }, [selectedItems]);
 
-  function handleSelectFile(file: File) {
+  const handleSelectFile = useCallback((file: File) => {
     setSelectedFile(file);
-  }
+  }, []);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();

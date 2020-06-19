@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, memo } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FiUpload as Icon } from 'react-icons/fi';
 import './styles.css';
@@ -46,4 +46,4 @@ const Dropzone: React.FC<Props> = (props) => {
 
 Dropzone.defaultProps = defaultProps;
 
-export default Dropzone;
+export default memo(Dropzone);

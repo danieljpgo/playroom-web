@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import Skeleton from '../../../../common/components/Skeleton';
 import './styles.css';
 
@@ -42,4 +42,4 @@ const Item: React.FC<Props> = (props) => {
   );
 };
 
-export default Item;
+export default memo(Item);
