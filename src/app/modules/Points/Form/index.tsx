@@ -121,7 +121,7 @@ const Form: React.FC = () => {
     setTimeout(() => {
       setShowModal(false);
       history.push('/');
-    }, 5000);
+    }, 2000);
   }
 
   const itemsLoading = [1, 2, 3, 4, 5, 6].map((item) => (
