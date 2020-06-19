@@ -5,10 +5,11 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { LeafletMouseEvent } from 'leaflet';
 import api from '../../../common/services/api';
-import Fieldset from './Fieldset';
-import Map from './Map';
 import Modal from '../../../common/components/Modal';
 import Dropzone from '../../../common/components/Dropzone';
+import Fieldset from './Fieldset';
+import Item from './Item';
+import Map from './Map';
 
 interface Item {
   id: number,
@@ -123,6 +124,15 @@ const Form: React.FC = () => {
     }, 5000);
   }
 
+  const itemsLoading = [1, 2, 3, 4, 5, 6].map((item) => (
+    <Item
+      key={item}
+      id={item}
+      onSelect={() => null}
+      loading
+    />
+  ));
+
   return (
     <form onSubmit={handleSubmit}>
       <h1>
@@ -228,20 +238,17 @@ const Form: React.FC = () => {
         <ul className="items-grid">
           {
             items.length === 0
-              ? 'Loading...' // @TODO Criar um esqueleto de loading para essa busca
+              ? itemsLoading
               : (
                 items.map((item) => (
-                  <li
+                  <Item
                     key={item.id}
-                    className={selectedItems.includes(item.id) ? 'selected' : ''}
-                    onClick={() => handleSelectItem(item.id)}
-                  >
-                    <img
-                      src={item.image_url}
-                      alt={item.title}
-                    />
-                    <span>{item.title}</span>
-                  </li>
+                    id={item.id}
+                    title={item.title}
+                    selected={selectedItems.includes(item.id)}
+                    imageUrl={item.image_url}
+                    onSelect={handleSelectItem}
+                  />
                 )))
             }
         </ul>

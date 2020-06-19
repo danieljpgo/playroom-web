@@ -7,6 +7,10 @@ interface Props {
   onFileUploaded: (file: File) => void;
 }
 
+const defaultProps = {
+  onFileUploaded: () => null,
+};
+
 const Dropzone: React.FC<Props> = (props) => {
   const { onFileUploaded } = props;
 
@@ -39,5 +43,7 @@ const Dropzone: React.FC<Props> = (props) => {
     </div>
   );
 };
+
+Dropzone.defaultProps = defaultProps;
 
 export default Dropzone;

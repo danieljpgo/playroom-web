@@ -21,10 +21,6 @@ const Modal: React.FC<Props> = (props) => {
   );
 };
 
-// size?: string | number;
-// color?: string;
-// title?: string;
-
 Modal.defaultProps = {
   show: false,
 };
