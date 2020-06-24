@@ -30,6 +30,6 @@ li img{
 }
 
 li.selected {
-  background: #E1FAEC;
-  border: 2px solid #34CB79;
+  background: var(--primary-light-color);
+  border: 2px solid var(--primary-color);
 }

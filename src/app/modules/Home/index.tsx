@@ -7,13 +7,17 @@ const Home: React.FC = () => (
   <div id="page-home">
     <div className="content">
       <div className="page">
-        <h1> Seu marketplace de coleta de resíduos. </h1>
-        <p> Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente. </p>
+        <h1>
+          Seu marketplace
+          <br />
+          de doação de brinquedos
+        </h1>
+        <p> Ajudamos pessoas a encontrarem pontos de doação de brinquedos. </p>
         <Link to="/cadastro">
           <span>
             <FiLogIn />
           </span>
-          <strong>Cadastre um ponto de coleta </strong>
+          <strong>Cadastre um ponto de doação </strong>
         </Link>
       </div>
     </div>

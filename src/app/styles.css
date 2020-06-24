@@ -1,7 +1,11 @@
 :root {
-  --primary-color: #34CB79;
-  --title-color: #322153;
+  --primary-color: #00AFB9;
+  --primary-light-color: #00afb91a;
+  --primary-dark-color: #02a0a9;
+  --title-color: #3f3d56;
+  /* --title-color: #322153; */
   --text-color: #6C6C80;
+  --background: #F0F0F5;
 }
 
 * {
@@ -11,7 +15,7 @@
 }
 
 body {
-  background: #F0F0F5;
+  background: var(--background);
   -webkit-font-smoothing: antialiased;
   color: var(--text-color);
 }

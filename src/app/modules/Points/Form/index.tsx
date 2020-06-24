@@ -138,7 +138,7 @@ const Form: React.FC = () => {
       <h1>
         Cadastro do
         <br />
-        Ponto de Coleta
+        Ponto de Doação
       </h1>
 
       <Dropzone onFileUploaded={handleSelectFile} />
@@ -232,7 +232,7 @@ const Form: React.FC = () => {
       </Fieldset>
 
       <Fieldset
-        title="Ítens de coleta"
+        title="Ítens para doação"
         subtitle="Selecione um ou mais itens abaixo"
       >
         <ul className="items-grid">
@@ -255,7 +255,7 @@ const Form: React.FC = () => {
       </Fieldset>
 
       <button type="submit">
-        Cadastrar ponto de coleta
+        Cadastrar ponto de doação
       </button>
 
       <Modal show={showModal} />

@@ -1,6 +1,7 @@
 #page-home {
   height: 100%;
-  background: url('../../common/resources/assets/home-background.svg') no-repeat 760px bottom;
+  background: url('../../common/resources/assets/home-background.svg') no-repeat 930px; /* @TODO Fazer isso responsivo */
+  background-size: 100vh;
 }
 
 #page-home .content {
@@ -14,10 +15,6 @@
   flex-direction: column;
   align-items: flex-start;
 }
-
-/* #page-home .content header {
-  margin: 48px 0 0;
-} */
 
 #page-home .content .page {
   flex: 1;
@@ -79,7 +76,7 @@
 }
 
 #page-home .content .page a:hover {
-  background: #2FB86E;
+  background: var(--primary-dark-color);
 }
 
 @media(max-width: 900px) {

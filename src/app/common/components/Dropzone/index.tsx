@@ -35,7 +35,7 @@ const Dropzone: React.FC<Props> = (props) => {
             <p>
               <Icon />
               <span>
-                { isDragActive ? 'Solte o arquivo aqui :)' : 'Imagem do local de coleta' }
+                { isDragActive ? 'Solte o arquivo aqui ;)' : 'Clique ou mova uma imagem aqui :)' }
               </span>
             </p>
           )

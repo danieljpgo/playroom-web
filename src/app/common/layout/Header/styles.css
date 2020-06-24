@@ -7,6 +7,18 @@ header {
   align-items: center;
 }
 
+header .logo{
+  color: var(--title-color);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+header .logo img{
+  height: 68px;
+}
+
 header a {
   color: var(--title-color);
   font-weight: bold;

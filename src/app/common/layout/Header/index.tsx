@@ -6,7 +6,10 @@ import './styles.css';
 
 const Header: React.FC = () => (
   <header>
-    <img src={logo} alt="Ecoleta" />
+    <div className="logo">
+      <img src={logo} alt="Playroom" />
+      <h2>Playroom</h2>
+    </div>
     <NavLink
       to="/"
       isActive={(match, location) => location.pathname === '/cadastro'}
