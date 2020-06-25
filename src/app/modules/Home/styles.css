@@ -1,6 +1,6 @@
 #page-home {
   height: 100%;
-  background: url('../../common/resources/assets/home-background.svg') no-repeat 930px; /* @TODO Fazer isso responsivo */
+  background: url('../../common/resources/assets/home-background.svg') no-repeat 870px; /* @TODO Fazer isso responsivo */
   background-size: 100vh;
 }
 
