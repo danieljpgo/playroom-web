@@ -1,44 +1,92 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+   <img
+      alt="Playroom"
+      title="Playroom"
+      src=".github/logo.svg"
+      width="150px" />
+   &nbsp;<div align="center">Playroom</div>
+</h1>
+ 
+<h1> Playroom Frontend </h1>
 
-## Available Scripts
+<p align="left">
+   <a href="https://github.com/danieljpgo">
+      <img
+         alt="author"
+         src="https://img.shields.io/badge/author-danieljpgo-0081A7?style=flat-square&labelColor=3f3d56"
+      />
+   </a>
+   <img
+      alt="languages"
+      src="https://img.shields.io/github/languages/count/danieljpgo/playroom-frontend?color=0081A7&style=flat-square&labelColor=3f3d56"
+   />
+   <a href="https://github.com/danieljpgo/playroom-frontend/stargazers">
+      <img
+         alt="stars"
+         src="https://img.shields.io/github/stars/danieljpgo/playroom-frontend?color=0081A7&style=flat-square&labelColor=3f3d56"/>
+   </a>
+   <a href="https://github.com/danieljpgo/playroom-frontend/network/members">
+      <img
+         alt="forks"
+         src="https://img.shields.io/github/forks/danieljpgo/playroom-frontend?color=0081A7&style=flat-square&labelColor=3f3d56"/>
+   </a>
+   <a href="https://github.com/danieljpgo/playroom-frontend/graphs/contributors">
+      <img
+         alt="contributors"
+         src="https://img.shields.io/github/contributors/danieljpgo/playroom-frontend?color=0081A7&style=flat-square&labelColor=3f3d56"/>
+   </a>
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-0081A7?style=flat-square&labelColor=3f3d56">
+</p>
 
-In the project directory, you can run:
+> A marketplace for finding and registering toy donation places. :jigsaw:
 
-### `yarn start`
+----
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+   <a href="#project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#integrations">Integrations</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#license">License</a>
+</p>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<h1 align="center">
+   <img
+      alt="kids jumping rope"
+      title="Playroom"
+      src=".github/home-background.svg"
+      width="600px" />
+</h1>
 
-### `yarn test`
+## Project
+under construction 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+The main features of the project are:
+- **Register** donation points.
+- **Coordinates** for precise location.
+- Image **upload** to represent the donation point. 
 
-### `yarn build`
+## Integrations
+This project is part of the **Playroom** system, the other projects are located at:
+- [Playroom Backend](https://github.com/danieljpgo/playroom-backend)
+- [Playroom Mobile](https://github.com/danieljpgo/playroom-mobile)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies
+The main technologies used to develop the project were:
+- [React](https://reactjs.org/)
+- [Leaflet](https://leafletjs.com/)
+- [Typescript](https://www.typescriptlang.org/)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+This project was bootstrapped with:
+- [create-react-app](https://github.com/facebook/create-react-app)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
+under construction 
 
-### `yarn eject`
+## License
+This project is under the [MIT license](https://github.com/danieljpgo/playroom-frontend/master/blob/LICENSE).
+Released in 2020.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Developed by [Daniel Jorge](https://github.com/danieljpgo)
