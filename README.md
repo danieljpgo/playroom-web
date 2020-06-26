@@ -56,7 +56,7 @@
       alt="kids jumping rope"
       title="Playroom"
       src=".github/daniel (2).gif"
-      width="600px" />
+      width="800px" />
 </h1>
 
 ## :memo: Project
