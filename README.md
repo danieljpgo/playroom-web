@@ -60,7 +60,7 @@
 </h1>
 
 ## :memo: Project
-under construction 
+Project aims to list toy donation companies and institutions, offering an easily accessible platform both for finding donation points and for registering new entities. 
 
 ## :rocket: Features
 The main features of the project are:
