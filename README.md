@@ -66,7 +66,8 @@ Project aims to list toy donation companies and institutions, offering an easily
 The main features of the project are:
 - **Register** donation points.
 - **Coordinates** for precise location.
-- Image **upload** to represent the donation point. 
+- Image **upload** to represent the donation point.
+- **Mobile** friendly.
 
 ## :computer: Integrations
 This project is part of the **Playroom** system, the other projects are located at:
